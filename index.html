@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Trisha Di | Red Velvet & Noir Gold Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,500;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ambient Audio Visualizer & Music Controller -->
+  <div class="music-pill" id="musicPill" title="Click to play / pause Birthday Music">
+    <div class="music-icon-wrap">
+      <span class="disc-icon">🎵</span>
+      <div class="equalizer-bars" id="eqBars">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+    <span class="music-label" id="musicLabel">Play Birthday Melody 🎶</span>
+  </div>
+
+  <!-- Background Animated Balloons Container -->
+  <div class="balloon-sky" id="balloonSky"></div>
+
+  <!-- Ambient Golden Dust Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Fireworks & Birthday Crackers Canvas Overlay -->
+  <canvas id="crackerCanvas"></canvas>
+
+  <!-- Confetti Canvas Overlay -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Floating Navigation -->
+  <nav class="glass-nav">
+    <div class="nav-logo">
+      <span class="crown">👑</span>
+      <span class="logo-text">Trisha's Royal Birthday</span>
+    </div>
+    <div class="nav-links">
+      <a href="#hero" class="nav-btn">Home</a>
+      <a href="#wishCardSection" class="nav-btn">Birthday Card</a>
+      <a href="#cakeSection" class="nav-btn">Cut Cake</a>
+      <a href="#giftsSection" class="nav-btn">Gifts</a>
+      <a href="#gallerySection" class="nav-btn">Prettiness & Memories</a>
+    </div>
+  </nav>
+
+  <!-- MAIN HERO SECTION -->
+  <header class="hero-section" id="hero">
+    <div class="hero-backdrop-glow"></div>
+    
+    <div class="hero-container">
+      <!-- Left: Royalty Greetings & Introduction -->
+      <div class="hero-content">
+        <div class="velvet-badge">
+          <span class="sparkle-gem">✦</span>
+          <span>A Royal Celebration for the Best Di</span>
+          <span class="sparkle-gem">✦</span>
+        </div>
+
+        <h1 class="hero-title">
+          Happy Birthday, <br>
+          <span class="gold-gradient-text shimmer">Trisha Di!</span>
+        </h1>
+
+        <p class="hero-subtext">
+          To the most graceful, sweetest, and loveliest soul who lights up every room with her radiant smile and heartwarming charm. Today is all about you!
+        </p>
+
+        <div class="hero-action-buttons">
+          <button class="gold-btn" id="openCardQuickBtn">
+            <span class="btn-icon">💌</span> Open Your Card
+          </button>
+          <button class="velvet-btn" id="cutCakeQuickBtn">
+            <span class="btn-icon">🎂</span> Cut the Cake
+          </button>
+          <button class="glass-btn" id="openGiftsQuickBtn">
+            <span class="btn-icon">🎁</span> Open Gifts
+          </button>
+        </div>
+
+        <div class="fun-facts-ticker">
+          <div class="ticker-item"><span class="ticker-badge">Truth #1</span> Cutest Smile in the Galaxy</div>
+          <div class="ticker-item"><span class="ticker-badge">Truth #2</span> Prettiest Di Award 👑</div>
+          <div class="ticker-item"><span class="ticker-badge">Truth #3</span> 100% Sassy & 1000% Loving</div>
+        </div>
+      </div>
+
+      <!-- Right: Main Cute Photo Frame with Glass Reflection & Mention from Mayank -->
+      <div class="hero-frame-area">
+        <div class="frame-assembly-wrapper">
+          <!-- Cute Top Ribbon & Crown Ornament -->
+          <div class="frame-topper">
+            <span class="crown-ornament">👑</span>
+            <div class="ribbon-bow">
+              <span class="bow-left"></span>
+              <span class="bow-knot">🎀</span>
+              <span class="bow-right"></span>
+            </div>
+          </div>
+
+          <!-- The Cute Royal Velvet & Gold Photo Frame -->
+          <div class="cute-photo-frame" id="mainPhotoFrame">
+            <!-- 4 Corner Baroque Filigree Corners -->
+            <div class="frame-corner top-left"></div>
+            <div class="frame-corner top-right"></div>
+            <div class="frame-corner bottom-left"></div>
+            <div class="frame-corner bottom-right"></div>
+
+            <!-- Frame Inner Velveteen Matting -->
+            <div class="frame-inner-matting">
+              <div class="photo-viewport">
+                <!-- Highlighted Portrait of Trisha Di -->
+                <img src="assets/photo_2.jpg" alt="Trisha Di - Royal Traditional Prettiness" id="primaryPhoto" class="frame-img">
+                <div class="frame-shimmer-overlay"></div>
+                <div class="photo-sparkles">
+                  <span class="sparkle s1">✨</span>
+                  <span class="sparkle s2">⭐</span>
+                  <span class="sparkle s3">✨</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Golden Plaque at bottom of frame: "from Mayank" -->
+            <div class="gold-nameplate">
+              <div class="nameplate-ornament-left">❖</div>
+              <div class="nameplate-text">
+                <span class="nameplate-title">The Prettiest Trisha Di ✨</span>
+                <span class="nameplate-signature">With Endless Love & Respect, from Mayank ❤️</span>
+              </div>
+              <div class="nameplate-ornament-right">❖</div>
+            </div>
+
+            <!-- Interactive Frame Switcher Dots -->
+            <div class="frame-switcher">
+              <button class="switch-dot active" data-src="assets/photo_2.jpg" title="Royal Crimson Saree"></button>
+              <button class="switch-dot" data-src="assets/photo_1.jpg" title="With Mayank (Sibling Duo)"></button>
+              <button class="switch-dot" data-src="assets/photo_4.jpg" title="White Swan Elegance"></button>
+              <button class="switch-dot" data-src="assets/photo_7.jpg" title="Purple Silk Poise"></button>
+            </div>
+          </div>
+
+          <!-- Glass Mirror Reflection under frame (with fade into monochrome floor) -->
+          <div class="frame-glass-reflection" aria-hidden="true">
+            <div class="reflection-inner">
+              <img src="assets/photo_2.jpg" id="reflectionImg" alt="Reflection">
+              <div class="reflection-plaque">
+                <span>With Endless Love & Respect, from Mayank ❤️</span>
+              </div>
+            </div>
+            <div class="reflection-fade-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: CUTE BIRTHDAY WISH CARD (Crackers + Song on Open) -->
+  <section class="section-container" id="wishCardSection">
+    <div class="section-header">
+      <span class="section-tag">✨ A SINCERE WISH FROM THE HEART ✨</span>
+      <h2 class="section-title">The Royal Birthday Envelope</h2>
+      <p class="section-description">Click the golden wax seal to open this card. As soon as you open it, your celebration fireworks will ignite and the birthday song will play!</p>
+    </div>
+
+    <div class="card-stage">
+      <div class="card-wrapper" id="cardWrapper">
+        <!-- 3D Greeting Card Container -->
+        <div class="birthday-card" id="birthdayCard">
+          
+          <!-- Card Front / Cover -->
+          <div class="card-face card-cover">
+            <div class="cover-velvet-texture"></div>
+            <div class="gold-filigree-border"></div>
+            
+            <div class="cover-content">
+              <div class="cover-crown">👑</div>
+              <div class="cover-script">This for you</div>
+              <div class="cover-recipient">Trisha Di</div>
+              <div class="envelope-ribbon"></div>
+              
+              <div class="wax-seal" id="cardSealBtn" title="Click to open the card!">
+                <div class="wax-seal-inner">
+                  <span class="seal-icon">💌</span>
+                  <span class="seal-text">OPEN ME</span>
+                </div>
+                <div class="seal-pulse"></div>
+              </div>
+
+              <div class="open-instruction">
+                <span>Touch the golden seal to unfold</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Inside (Unfolds in 3D) -->
+          <div class="card-face card-inside">
+            <div class="inside-decor top-decor">❖ ─── ✦ ─── ❖</div>
+            
+            <div class="inside-body">
+              <h3 class="inside-heading">Dearest Trisha Di, 💖</h3>
+              <p class="inside-paragraph">
+                On this extra-special day, I want to celebrate the most amazing, gorgeous, and caring sister in the entire world.
+              </p>
+              <p class="inside-paragraph highlight-quote">
+                “Your laughter brings cheer, your elegance turns heads, and your kind soul makes every moment brighter.”
+              </p>
+              <p class="inside-paragraph">
+                Thank you for all the sweet memories, the endless fun, your advice, and even the funny arguments where you pretend you are not dramatic! (You know you are the cutest when you are!) 😉
+              </p>
+              <p class="inside-paragraph">
+                May this year bless you with boundless happiness, sky-high success, endless good health, and all the love your heart can hold.
+              </p>
+              
+              <div class="inside-signature">
+                <span class="sign-tag">Always cheering for you,</span>
+                <span class="sign-name">From Mayank 🌟</span>
+                <span class="sign-date">November 19, 2026</span>
+              </div>
+            </div>
+
+            <div class="inside-actions">
+              <button class="gold-outline-btn" id="closeCardBtn">Close Card ↺</button>
+              <button class="gold-btn" id="retriggerCrackersBtn">Launch More Crackers! 🎆</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- Reflection of Card Stage -->
+      <div class="card-stage-reflection"></div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: INTERACTIVE BIRTHDAY CAKE (Cut Option + Confetti Burst + Song) -->
+  <section class="section-container" id="cakeSection">
+    <div class="section-header">
+      <span class="section-tag">🎂 SWEETEST DELIGHT 🎂</span>
+      <h2 class="section-title">The Royal Red Velvet Cake</h2>
+      <p class="section-description">Make a wish, blow out the glowing candles, and click "Cut the Cake" to slice it and shower golden confetti with celebratory music!</p>
+    </div>
+
+    <div class="cake-arena">
+      <div class="cake-display-stand">
+        <!-- Golden Pedestal with Glass Reflection -->
+        <div class="pedestal-plate">
+          
+          <!-- Cake Construction -->
+          <div class="cake-box" id="cakeBox">
+            
+            <!-- Candles Container -->
+            <div class="candles-rack" id="candlesRack">
+              <div class="candle candle-1">
+                <div class="flame" id="flame1"></div>
+                <div class="candle-stick"></div>
+              </div>
+              <div class="candle candle-2 center-candle">
+                <div class="flame" id="flame2"></div>
+                <div class="candle-stick gold-candle"></div>
+              </div>
+              <div class="candle candle-3">
+                <div class="flame" id="flame3"></div>
+                <div class="candle-stick"></div>
+              </div>
+            </div>
+
+            <!-- Cake Tier 1 (Top Tier) -->
+            <div class="cake-tier top-tier" id="topTier">
+              <div class="tier-frosting">
+                <span class="cream-curl"></span>
+                <span class="cream-curl"></span>
+                <span class="cream-curl"></span>
+                <span class="cream-curl"></span>
+              </div>
+              <div class="tier-body velvet-cake-body">
+                <span class="cake-slice-line" id="sliceLine"></span>
+              </div>
+            </div>
+
+            <!-- Cake Tier 2 (Base Tier) -->
+            <div class="cake-tier base-tier" id="baseTier">
+              <div class="tier-frosting">
+                <span class="gold-pearl"></span>
+                <span class="gold-pearl"></span>
+                <span class="gold-pearl"></span>
+                <span class="gold-pearl"></span>
+                <span class="gold-pearl"></span>
+              </div>
+              <div class="tier-body base-velvet-body">
+                <div class="cut-slice-left" id="cutLeft"></div>
+                <div class="cut-slice-right" id="cutRight"></div>
+              </div>
+            </div>
+
+            <!-- Animated Knife -->
+            <div class="golden-knife" id="goldenKnife">
+              <div class="knife-handle"></div>
+              <div class="knife-blade"></div>
+            </div>
+
+          </div>
+
+          <!-- Glass Pedestal Base -->
+          <div class="pedestal-glass-base"></div>
+        </div>
+
+        <!-- Pedestal Mirror Reflection -->
+        <div class="pedestal-reflection"></div>
+      </div>
+
+      <!-- Cake Controls -->
+      <div class="cake-controls">
+        <button class="gold-btn large-btn" id="cutCakeBtn">
+          <span class="btn-icon">🔪</span> Cut the Cake!
+        </button>
+        <button class="velvet-btn" id="blowCandlesBtn">
+          <span class="btn-icon">💨</span> Blow Candles
+        </button>
+        <button class="glass-btn" id="resetCakeBtn">
+          <span class="btn-icon">↺</span> Restore Cake
+        </button>
+      </div>
+
+      <!-- Cut Announcement Banner -->
+      <div class="cake-celebration-toast" id="cakeToast">
+        <span class="toast-crown">✨🎉✨</span>
+        <h3>Sweetest Bites for Trisha Di!</h3>
+        <p>May your life be as rich, sweet, and delightful as this velvet slice!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: GIFTS WITH OPEN OPTION (Cutest Dark Truth & Loveliest) -->
+  <section class="section-container" id="giftsSection">
+    <div class="section-header">
+      <span class="section-tag">🎁 UNBOX THE SURPRISES 🎁</span>
+      <h2 class="section-title">Exclusive Birthday Gift Boxes</h2>
+      <p class="section-description">Hand-wrapped with crimson velvet and gold satin ribbons. Click each gift box to untie the ribbon and reveal what's inside!</p>
+    </div>
+
+    <div class="gifts-grid">
+      
+      <!-- GIFT 1: "you are cutest in the world dark truth" -->
+      <div class="gift-col">
+        <div class="gift-box-card" id="giftBox1">
+          <div class="gift-status-badge">Click to Open</div>
+          
+          <div class="gift-3d-box">
+            <!-- Box Lid -->
+            <div class="box-lid" id="lid1">
+              <div class="ribbon-bow-3d">🎀</div>
+              <div class="gold-cross-ribbon-horizontal"></div>
+            </div>
+            <!-- Box Base -->
+            <div class="box-body velvet-box-red">
+              <div class="gold-cross-ribbon-vertical"></div>
+              <div class="box-tag">Gift #1</div>
+            </div>
+          </div>
+
+          <!-- Glass Reflection beneath Gift -->
+          <div class="gift-reflection"></div>
+
+          <!-- Revealed Surprise Card -->
+          <div class="gift-reveal-modal" id="reveal1">
+            <div class="reveal-inner">
+              <span class="reveal-badge">THE SECRET REVEALED 🤫</span>
+              <h3 class="reveal-title">Dark Truth:</h3>
+              <p class="reveal-text highlight-truth">
+                “You are the <span class="gold-accent">CUTEST</span> in the whole wide world — dark truth!”
+              </p>
+              <p class="reveal-subtext">
+                No matter how much you pout, give that stern elder sister look, or try to act super serious... you will always be the cutest di in existence! ❤️
+              </p>
+              <div class="reveal-footer">— Confirmed by Mayank</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GIFT 2: "you are loveliest" -->
+      <div class="gift-col">
+        <div class="gift-box-card" id="giftBox2">
+          <div class="gift-status-badge">Click to Open</div>
+          
+          <div class="gift-3d-box">
+            <!-- Box Lid -->
+            <div class="box-lid" id="lid2">
+              <div class="ribbon-bow-3d">✨</div>
+              <div class="gold-cross-ribbon-horizontal"></div>
+            </div>
+            <!-- Box Base -->
+            <div class="box-body noir-gold-box">
+              <div class="gold-cross-ribbon-vertical"></div>
+              <div class="box-tag">Gift #2</div>
+            </div>
+          </div>
+
+          <!-- Glass Reflection beneath Gift -->
+          <div class="gift-reflection"></div>
+
+          <!-- Revealed Surprise Card -->
+          <div class="gift-reveal-modal" id="reveal2">
+            <div class="reveal-inner">
+              <span class="reveal-badge">PURE HEART 💖</span>
+              <h3 class="reveal-title">Special Truth:</h3>
+              <p class="reveal-text highlight-truth">
+                “You are the <span class="gold-accent">LOVELIEST</span> soul inside & out!”
+              </p>
+              <p class="reveal-subtext">
+                Your genuine empathy, the love you shower on everyone, and your graceful presence make every gathering memorable. Never change your beautiful golden heart!
+              </p>
+              <div class="reveal-footer">— Cherished by Mayank</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GIFT 3: Sister of the Century Bonus Gift -->
+      <div class="gift-col">
+        <div class="gift-box-card" id="giftBox3">
+          <div class="gift-status-badge">Click to Open</div>
+          
+          <div class="gift-3d-box">
+            <!-- Box Lid -->
+            <div class="box-lid" id="lid3">
+              <div class="ribbon-bow-3d">👑</div>
+              <div class="gold-cross-ribbon-horizontal"></div>
+            </div>
+            <!-- Box Base -->
+            <div class="box-body gold-sparkle-box">
+              <div class="gold-cross-ribbon-vertical"></div>
+              <div class="box-tag">Gift #3</div>
+            </div>
+          </div>
+
+          <!-- Glass Reflection beneath Gift -->
+          <div class="gift-reflection"></div>
+
+          <!-- Revealed Surprise Card -->
+          <div class="gift-reveal-modal" id="reveal3">
+            <div class="reveal-inner">
+              <span class="reveal-badge">ROYAL WISH 🌟</span>
+              <h3 class="reveal-title">A Brother's Promise:</h3>
+              <p class="reveal-text highlight-truth">
+                “Infinite happiness, zero tears, and lots of treats!”
+              </p>
+              <p class="reveal-subtext">
+                May this year reward you with every victory you strive for, dream vacations, stylish outfits, and endless reasons to smile every single day.
+              </p>
+              <div class="reveal-footer">— Always by your side, Mayank</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: GALLERY - HER PRETTINESS & CHERISHED MEMORIES -->
+  <section class="section-container" id="gallerySection">
+    <div class="section-header">
+      <span class="section-tag">📸 CHERISHED ALBUM 📸</span>
+      <h2 class="section-title">Her Prettiness & Unforgettable Memories</h2>
+      <p class="section-description">A celebration of Trisha Di's natural elegance, radiant charm, playful moods, and special moments shared with Mayank.</p>
+    </div>
+
+    <!-- Video Spotlight Memory -->
+    <div class="video-memory-card">
+      <div class="video-frame-border">
+        <div class="video-header">
+          <div class="video-tag">✨ MEMORY REEL ✨</div>
+          <h3 class="video-title">A Living Glimpse of Her Radiance & Charm</h3>
+        </div>
+        <div class="video-player-container">
+          <video controls preload="metadata" class="memory-video" poster="assets/photo_2.jpg">
+            <source src="assets/video_1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+        </div>
+        <div class="video-caption">
+          <p>“Moments that make us smile forever — capturing her lively essence, infectious laughter, and that unstoppable spark!” 🎥💖</p>
+        </div>
+      </div>
+      <div class="video-reflection"></div>
+    </div>
+
+    <!-- Photos Grid -->
+    <div class="gallery-grid">
+      
+      <!-- Photo 1: Sibling Duo (Mayank & Trisha Di) -->
+      <div class="gallery-item" data-full="assets/photo_1.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_1.jpg" alt="Mayank and Trisha Di" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Sibling Bond ❤️</span>
+            <h4 class="photo-title">The Dynamic Duo: Mayank & Trisha Di</h4>
+            <p class="photo-desc">The classic sibling teasing, playful pouts, and having each other's back forever. Pure happiness in one frame!</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 2: Traditional Royal Crimson -->
+      <div class="gallery-item" data-full="assets/photo_2.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_2.jpg" alt="Trisha Di in Traditional Crimson" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Royal Elegance 🌸</span>
+            <h4 class="photo-title">Crimson Grace & Golden Mehendi</h4>
+            <p class="photo-desc">Traditional attire with royal crimson, turquoise accents, gold jewels, and that serene, gentle smile that captivates all.</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 3: Serene Poise -->
+      <div class="gallery-item" data-full="assets/photo_3.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_3.jpg" alt="Serene and Graceful Trisha Di" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Pure Charm 💫</span>
+            <h4 class="photo-title">The Candid Queen</h4>
+            <p class="photo-desc">Flowing locks, emerald green bangles, and a distant thoughtful gaze. Effortless beauty at its absolute peak.</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 4: White Swan Elegance -->
+      <div class="gallery-item" data-full="assets/photo_4.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_4.jpg" alt="White Dress Fairy Tale" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Fairy Tale Glamour 🕊️</span>
+            <h4 class="photo-title">The White Swan & Chandelier Glow</h4>
+            <p class="photo-desc">Dressed in ethereal white lace beneath the chandeliers. Striking, poised, and naturally photogenic.</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 5: Four Moods of Cuteness -->
+      <div class="gallery-item" data-full="assets/photo_5.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_5.jpg" alt="Four Moods of Cuteness" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Cutest in the World 🥰</span>
+            <h4 class="photo-title">Four Expressions, Infinite Cuteness</h4>
+            <p class="photo-desc">The dreamy gaze, the playful smile, the thoughtful pose, and the sweet blush. Proof that she is the cutest!</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 6: Mall Vibes & Casual Chic -->
+      <div class="gallery-item" data-full="assets/photo_6.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_6.jpg" alt="Casual Chic Mall Outing" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Casual Chic 🏙️</span>
+            <h4 class="photo-title">Effortless Radiance</h4>
+            <p class="photo-desc">Casual shirt, denim, carefree laughter, and candid strolls. Looking stunning in every single shot without even trying!</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+      <!-- Photo 7: Purple Silk Breeze -->
+      <div class="gallery-item" data-full="assets/photo_7.jpg">
+        <div class="gallery-card">
+          <div class="gallery-img-wrap">
+            <img src="assets/photo_7.jpg" alt="Purple Silk Breeze" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="zoom-icon">🔍 View Full Size</span>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <span class="photo-category">Timeless Beauty 💜</span>
+            <h4 class="photo-title">Breezy Whispers & Silk Poise</h4>
+            <p class="photo-desc">Soft sunshine, wind brushing past her hair, royal purple silk drape, and that signature gentle half-smile.</p>
+          </div>
+        </div>
+        <div class="gallery-reflection"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LIGHTBOX MODAL FOR HD VIEW -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <div class="lightbox-frame">
+        <img src="" alt="Full size preview" id="lightboxImg">
+      </div>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="royal-footer">
+    <div class="footer-reflection-line"></div>
+    <div class="footer-content">
+      <div class="footer-crown">👑</div>
+      <h2 class="footer-title">Forever Celebrating You, Trisha Di</h2>
+      <p class="footer-subtext">
+        Crafted with deep love, red velvet warmth, and golden wishes.
+      </p>
+      
+      <!-- Special Mention From Mayank -->
+      <div class="footer-signature-plaque">
+        <span class="plaque-sparkle">✨</span>
+        <span class="plaque-words">Specially designed with love, pride & respect — <strong>From Mayank</strong></span>
+        <span class="plaque-sparkle">✨</span>
+      </div>
+
+      <div class="footer-copyright">
+        Happy Birthday Trisha Di • November 19, 2026 • Red Velvet & Noir Edition
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
